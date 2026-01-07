@@ -1,0 +1,16 @@
+
+<suite name="Failed suite [Suite]">
+  <test thread-count="5" name="SmokeTest(failed)">
+    <classes>
+      <class name="com.playwright.NewTest2">
+      
+        <methods>
+          <include name="verifyTitleOfWebpage"/>
+          <include name="openBrowser"/>
+          <include name="closeBrowser"/>
+        </methods>
+        
+      </class> <!-- com.playwright.NewTest2 -->
+    </classes>
+  </test> <!-- SmokeTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

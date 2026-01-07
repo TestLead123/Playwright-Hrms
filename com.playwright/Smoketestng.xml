@@ -1,0 +1,11 @@
+
+  <suite name="Suite">
+  <test thread-count="5" name="SmokeTest">
+    <classes>
+    
+      <class name="com.playwright.NewTest2"/>
+      <class name="com.playwright.NewTest"/>
+    </classes>
+    
+  </test> <!-- SmokeTest -->
+</suite> <!-- Suite -->
