@@ -9,5 +9,7 @@ public class deleteEmployee {
 	public void test()
 	{
 		System.out.println("Deleted successfully");
+		System.out.println("Adding Deleted successfully");
+
 	}
 }
