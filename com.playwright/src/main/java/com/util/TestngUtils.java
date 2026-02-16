@@ -2,7 +2,7 @@ package com.util;
 
 import org.testng.Assert;
 
-public class TestNGUtility {
+public class TestngUtils {
 
 	public static void assertFail(String message) 
 	
@@ -20,9 +20,9 @@ public class TestNGUtility {
 	
 	public static void assertTrue(String actual,String expected)
 	{
-		if(actual.contains(expected))
+		if(actual.equalsIgnoreCase(expected))
 		{
-			Assert.assertTrue(actual.contains(expected));
+			Assert.assertTrue(expected.contains(actual));
 		}
 		else
 		{

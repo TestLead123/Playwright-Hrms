@@ -1,10 +1,14 @@
 package com.util;
 
 import java.io.FileInputStream;
+import java.nio.file.Paths;
 import java.util.Properties;
 
+//import com.Hrms.utils.TestNGUtility;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Frame;
+import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
@@ -38,7 +42,7 @@ public class CommonUtils
 		}
 		catch(Exception e)
 		{
-			TestNGUtility.assertFail(e.getMessage());
+			TestngUtils.assertFail(e.getMessage());
 		}
 	}
 	
@@ -73,7 +77,7 @@ public class CommonUtils
 			
 			default:
 				
-				TestNGUtility.assertFail1("Invalid browser");
+				TestngUtils.assertFail1("Invalid browser");
 		}
 		
 		 page=browser.newPage();
@@ -95,7 +99,23 @@ public class CommonUtils
 		catch(Exception e)
 		{
 			
-			TestNGUtility.assertFail1(e.getMessage());
+			TestngUtils.assertFail1(e.getMessage());
+
+		}
+		
+	}
+	
+	public static void enterValue(FrameLocator pimframe,String selector,String value)
+	{
+		try
+		{
+			
+			pimframe.locator(selector).fill(value);
+		}
+		catch(Exception e)
+		{
+			
+			TestngUtils.assertFail1(e.getMessage());
 
 		}
 		
@@ -110,7 +130,7 @@ public class CommonUtils
 		}
 		catch(Exception e)
 		{
-			TestNGUtility.assertFail1(e.getMessage());
+			TestngUtils.assertFail1(e.getMessage());
 
 		}
 		return element;
@@ -124,10 +144,24 @@ public class CommonUtils
 		}
 		catch(Exception e)
 		{
-			TestNGUtility.assertFail1(e.getMessage());
+			TestngUtils.assertFail1(e.getMessage());
 
 		}
 	}
+	public static void clickElement(FrameLocator pimframe,String selector)
+	{
+		try
+		{
+			pimframe.locator(selector).click();
+		}
+		catch(Exception e)
+		{
+			TestngUtils.assertFail1(e.getMessage());
+
+		}
+	}
+	
+	
 	
 	public static String getElementText(String selector)
 	{
@@ -137,9 +171,97 @@ public class CommonUtils
 			text=findElement(selector).textContent().trim();
 		}catch(Exception e)
 		{
-			TestNGUtility.assertFail1(e.getMessage());
+			TestngUtils.assertFail1(e.getMessage());
 		}
 		return text;
 	}
 	
+	public static String getElementText(FrameLocator frame,String selector)
+	{
+		String empText=null;
+		try
+		{
+			empText=frame.locator(selector).textContent();
+		}catch(Exception e)
+		{
+			TestngUtils.assertFail1(e.getMessage());
+		}
+		return empText;
+	}
+	
+	
+	//Mouse Actions
+	
+	public static void moveToElement(String selector)
+	{
+		try
+		{
+			findElement(selector).hover();
+		}
+		catch(Exception e)
+		{
+			TestngUtils.assertFail1(e.getMessage());
+
+		}
+	}
+
+	//switch to frame
+	
+	public static FrameLocator switchToFrameByUsingIdorName(String selector)
+	{
+		FrameLocator frame=null;
+		try
+		{
+			frame=page.frameLocator(selector);
+		}
+		catch(Exception e)
+		{
+			TestngUtils.assertFail1(e.getMessage());
+
+		}
+		return frame;
+	}
+
+	public static void selectDropdownValue(FrameLocator frame,String selector,String option)
+	{
+		try
+		{
+			frame.locator(selector).selectOption(option);
+		}
+		catch(Exception e)
+		{
+			TestngUtils.assertFail1(e.getMessage());
+
+		}
+	}
+	
+	
+	public static void uploadFile(FrameLocator frame,String selector,String filepath)
+	{
+		try
+		{
+			frame.locator(selector).setInputFiles(Paths.get(filepath));
+		}
+		catch(Exception e)
+		{
+			TestngUtils.assertFail1(e.getMessage());
+
+		}
+	}
+	public static boolean isElementChecked(FrameLocator frame,String selector)
+	{
+		boolean	element=false;
+		try
+		{
+			frame.locator(selector).click();
+			element=frame.locator(selector).isChecked();
+
+		}
+		catch(Exception e)
+		{
+			TestngUtils.assertFail1(e.getMessage());
+
+		}
+		return element;
+	}
 }

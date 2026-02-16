@@ -1,7 +1,7 @@
 package com.pages;
 
 import com.util.CommonUtils;
-import com.util.TestNGUtility;
+import com.util.TestngUtils;
 
 public class LoginPage 
 {
@@ -33,7 +33,7 @@ public class LoginPage
 		 
 		 }catch(Exception e) {
 		 
-		 TestNGUtility.assertFail(e.getMessage());
+		 TestngUtils.assertFail(e.getMessage());
 		 }
 	 }
 	 

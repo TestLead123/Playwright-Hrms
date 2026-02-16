@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite">
+  <test thread-count="5" name="testNgPractice">
+    <classes>
+      //<class name="com.playwright.NewTest2"/>
+      //<class name="com.playwright.NewTest"/>
+      //<class name="com.basepack.BasePage"/>
+      <class name="com.tests.TestPIMPage"/>
+      //<class name="com.playwright.deleteEmployee"/>
+      <Methods>
+      
+      <include name="addEmployeeThenVerify"/>
+      
+      </Methods>
+    </classes>
+  </test> <!-- testNgPractice -->
+</suite> <!-- Suite -->

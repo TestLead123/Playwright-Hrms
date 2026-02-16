@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
-  <test thread-count="5" name="SmokeTest(failed)">
+  <test thread-count="5" name="testNgPractice(failed)">
     <classes>
-      <class name="com.playwright.NewTest2">
+      <class name="com.tests.TestPIMPage">
         <methods>
-          <include name="verifyTitleOfWebpage"/>
-          <include name="openBrowser"/>
-          <include name="closeBrowser"/>
+          <include name="tearDown"/>
+          <include name="addEmployeeThenVerify"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.playwright.NewTest2 -->
+      </class> <!-- com.tests.TestPIMPage -->
+      <class name="com.playwright.NewTest">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="openBrowser"/>
+          <include name="verifyTitleOfWebpage"/>
+        </methods>
+      </class> <!-- com.playwright.NewTest -->
     </classes>
-  </test> <!-- SmokeTest(failed) -->
+  </test> <!-- testNgPractice(failed) -->
 </suite> <!-- Failed suite [Suite] -->
